@@ -17,3 +17,6 @@ export async function Log(stack, level, packageName, message) {
         console.error("Logging failed:", error);
     }
 }
+
+
+
