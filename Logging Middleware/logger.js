@@ -1,7 +1,7 @@
 
 const BASE_URL = "http://20.244.56.144/evaluation-service";
 export async function initApp(clientID, clientSecret) {
-  console.log("🔐 Authenticating via logger...");
+  console.log("Authenticating via logger...");
 
   try {
     const authResponse = await fetch(`${BASE_URL}/auth`, {
@@ -16,13 +16,13 @@ export async function initApp(clientID, clientSecret) {
 
     const authData = await authResponse.json();
     const token = authData.access_token;
-    console.log("✅ Auth Success | Token:", token);
+    console.log("Auth Success | Token:", token);
 
     await logEvent("Authentication Success", token);
 
     return token; 
   } catch (error) {
-    console.error("❌ Auth/Logging failed via logger.js:", error.message);
+    console.error("Auth/Logging failed via logger.js:", error.message);
     return null;
   }
 }
@@ -41,6 +41,6 @@ export async function logEvent(message, token) {
       }),
     });
   } catch (err) {
-    console.error("📛 Logging failed:", err.message);
+    console.error("Logging failed:", err.message);
   }
 }
